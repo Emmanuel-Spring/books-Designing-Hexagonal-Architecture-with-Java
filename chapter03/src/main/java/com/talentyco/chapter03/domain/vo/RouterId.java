@@ -1,4 +1,4 @@
-package com.talentyco.chapter02.domain;
+package com.talentyco.chapter03.domain.vo;
 
 public class RouterId {
     private String id;

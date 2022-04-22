@@ -1,7 +1,9 @@
 package com.talentyco.chapter02.domain.entity;
 
-import com.talentyco.chapter02.domain.RouterId;
-import com.talentyco.chapter02.domain.RouterType;
+import com.talentyco.chapter02.domain.vo.IP;
+import com.talentyco.chapter02.domain.vo.Network;
+import com.talentyco.chapter02.domain.vo.RouterId;
+import com.talentyco.chapter02.domain.vo.RouterType;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 public class Router {
     private final RouterType routerType;
     private final RouterId routerId;
+    private Switch networkSwith;
 
 
     public Router(RouterType routerType, RouterId routerId) {
@@ -30,14 +33,26 @@ public class Router {
     }
 
 
+    public RouterType getRouterType() {
+        return routerType;
+    }
+
+    public void addNetworkToSwitch(Network network) {
+        this.networkSwith = networkSwith.addNetwork(network);
+    }
+
+    public Network createNetwork(IP address, String name, int cidr) {
+        return new Network(address, name, cidr);
+    }
+
+    public List<Network> retrieveNetworks() {
+        return networkSwith.getNetwork();
+    }
+
     public static List<Router> retrieveRouter(List<Router> routers, Predicate<Router> predicates) {
         return routers.stream()
                 .filter(predicates)
                 .collect(Collectors.<Router>toList());
-    }
-
-    public RouterType getRouterType() {
-        return routerType;
     }
 
     @Override
