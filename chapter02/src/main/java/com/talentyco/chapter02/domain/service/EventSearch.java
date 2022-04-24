@@ -1,6 +1,5 @@
 package com.talentyco.chapter02.domain.service;
 
-
 import com.talentyco.chapter02.domain.entity.Event;
 import com.talentyco.chapter02.domain.vo.ParsePolicyType;
 

@@ -1,6 +1,5 @@
 package com.talentyco.chapter03.domain.service;
 
-
 import com.talentyco.chapter03.domain.entity.Router;
 import com.talentyco.chapter03.domain.specification.CIDRSpecification;
 import com.talentyco.chapter03.domain.specification.NetworkAmountSpecification;
